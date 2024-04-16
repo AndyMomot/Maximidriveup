@@ -9,7 +9,7 @@ import SwiftUI
 
 struct MainTabBarView: View {
     var body: some View {
-        Text("TabBarView")
+        Text(DefaultsService.userName)
     }
 }
 

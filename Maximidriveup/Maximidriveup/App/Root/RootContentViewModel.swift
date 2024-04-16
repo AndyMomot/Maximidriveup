@@ -9,10 +9,15 @@ import Foundation
 
 extension RootContentView {
     final class RootContentViewModel: ObservableObject {
-        @Published var isOnboarded = false
+        @Published var flow: DefaultsService.Flow = .onboarding
         
-        func checkOnbordingStatus() {
-            isOnboarded = DefaultsService.isOnboarded
+        func getFlow() {
+            flow = DefaultsService.flow
+        }
+        
+        func setFlow(_ flow: DefaultsService.Flow) {
+            DefaultsService.setFlow(flow)
+            getFlow()
         }
     }
 }

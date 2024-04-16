@@ -8,12 +8,6 @@
 import Foundation
 
 extension OnboardingView {
-    final class OnboardingViewModel: ObservableObject {
-        @Published var showPrivacy = false
-    }
-}
-
-extension OnboardingView {
     enum ViewState {
         case first
         case second

@@ -49,6 +49,11 @@
 		4785316B2BCE8A2B00168F0C /* SF-Pro-Display-Ultralight.otf in Resources */ = {isa = PBXBuildFile; fileRef = 478531572BCE8A2B00168F0C /* SF-Pro-Display-Ultralight.otf */; };
 		4785316F2BCE8AD200168F0C /* NextButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785316E2BCE8AD200168F0C /* NextButtonView.swift */; };
 		478531722BCE900700168F0C /* PrivacyPolicyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478531712BCE900700168F0C /* PrivacyPolicyView.swift */; };
+		478531742BCEB36900168F0C /* PrivacyPolicyViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478531732BCEB36900168F0C /* PrivacyPolicyViewModel.swift */; };
+		478531772BCEB4AE00168F0C /* CheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478531762BCEB4AE00168F0C /* CheckBoxView.swift */; };
+		4785317A2BCEB8A700168F0C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478531792BCEB8A700168F0C /* RegistrationView.swift */; };
+		4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785317B2BCEBFA000168F0C /* RegistrationViewModel.swift */; };
+		4785317F2BCEC19100168F0C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785317E2BCEC19100168F0C /* UserModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -96,6 +101,11 @@
 		478531572BCE8A2B00168F0C /* SF-Pro-Display-Ultralight.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Display-Ultralight.otf"; sourceTree = "<group>"; };
 		4785316E2BCE8AD200168F0C /* NextButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NextButtonView.swift; sourceTree = "<group>"; };
 		478531712BCE900700168F0C /* PrivacyPolicyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyView.swift; sourceTree = "<group>"; };
+		478531732BCEB36900168F0C /* PrivacyPolicyViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrivacyPolicyViewModel.swift; sourceTree = "<group>"; };
+		478531762BCEB4AE00168F0C /* CheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckBoxView.swift; sourceTree = "<group>"; };
+		478531792BCEB8A700168F0C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
+		4785317B2BCEBFA000168F0C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
+		4785317E2BCEC19100168F0C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,6 +174,7 @@
 		478530FF2BCE729200168F0C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				4785317D2BCEC18300168F0C /* User */,
 				4785316C2BCE8ABD00168F0C /* Views */,
 			);
 			path = Helpers;
@@ -274,6 +285,7 @@
 				478531412BCE833000168F0C /* OnboardingViewTabView */,
 				478531342BCE7A0B00168F0C /* Onboarding */,
 				478531702BCE8FF800168F0C /* PrivacyPolicy */,
+				478531782BCEB89A00168F0C /* Registration */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -314,6 +326,7 @@
 		4785316C2BCE8ABD00168F0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				478531752BCEB49B00168F0C /* CheckBox */,
 				4785316D2BCE8AC500168F0C /* NextButton */,
 			);
 			path = Views;
@@ -331,8 +344,34 @@
 			isa = PBXGroup;
 			children = (
 				478531712BCE900700168F0C /* PrivacyPolicyView.swift */,
+				478531732BCEB36900168F0C /* PrivacyPolicyViewModel.swift */,
 			);
 			path = PrivacyPolicy;
+			sourceTree = "<group>";
+		};
+		478531752BCEB49B00168F0C /* CheckBox */ = {
+			isa = PBXGroup;
+			children = (
+				478531762BCEB4AE00168F0C /* CheckBoxView.swift */,
+			);
+			path = CheckBox;
+			sourceTree = "<group>";
+		};
+		478531782BCEB89A00168F0C /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				478531792BCEB8A700168F0C /* RegistrationView.swift */,
+				4785317B2BCEBFA000168F0C /* RegistrationViewModel.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		4785317D2BCEC18300168F0C /* User */ = {
+			isa = PBXGroup;
+			children = (
+				4785317E2BCEC19100168F0C /* UserModel.swift */,
+			);
+			path = User;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,17 +492,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				478530EC2BCE713F00168F0C /* ViewController.swift in Sources */,
+				4785317F2BCEC19100168F0C /* UserModel.swift in Sources */,
 				4785312D2BCE733800168F0C /* Strings.generated.swift in Sources */,
 				478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */,
 				478531362BCE7CDF00168F0C /* OnboardingView.swift in Sources */,
 				478531242BCE733800168F0C /* Fonts.generated.swift in Sources */,
+				4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */,
 				478531432BCE834200168F0C /* OnboardingViewModel.swift in Sources */,
 				4785313B2BCE7E9000168F0C /* RootContentViewModel.swift in Sources */,
 				4785311F2BCE733800168F0C /* Colors.generated.swift in Sources */,
 				478530FC2BCE71BA00168F0C /* RootContentView.swift in Sources */,
 				4785316F2BCE8AD200168F0C /* NextButtonView.swift in Sources */,
 				478530EA2BCE713F00168F0C /* SceneDelegate.swift in Sources */,
+				478531742BCEB36900168F0C /* PrivacyPolicyViewModel.swift in Sources */,
 				478531722BCE900700168F0C /* PrivacyPolicyView.swift in Sources */,
+				4785317A2BCEB8A700168F0C /* RegistrationView.swift in Sources */,
+				478531772BCEB4AE00168F0C /* CheckBoxView.swift in Sources */,
 				4785311D2BCE733800168F0C /* Images.generated.swift in Sources */,
 				478531402BCE820C00168F0C /* OnboardingViewTabView.swift in Sources */,
 				4785313E2BCE7F5B00168F0C /* MainTabBarView.swift in Sources */,

@@ -13,18 +13,36 @@ final class DefaultsService {
 }
 
 extension DefaultsService {
-    static var isOnboarded: Bool {
-        standard.bool(forKey: Keys.isOnboarded.rawValue)
+    static var flow: Flow {
+        let name = standard.string(forKey: Keys.flow.rawValue) ?? ""
+        return Flow(rawValue: name) ?? .onboarding
     }
     
-    static func isOnboarded(flag: Bool) {
-        standard.set(flag, forKey: Keys.isOnboarded.rawValue)
+    static func setFlow(_ flow: Flow) {
+        standard.set(flow.rawValue, forKey: Keys.flow.rawValue)
+    }
+    
+    static var userName: String {
+        return standard.string(forKey: Keys.userName.rawValue) ?? ""
+    }
+    
+    static func setUserName(_ name: String) {
+        standard.set(name, forKey: Keys.userName.rawValue)
     }
 }
 
 // MARK: - Keys
 extension DefaultsService {
     enum Keys: String {
-        case isOnboarded
+        case flow
+        case userName
+    }
+}
+
+extension DefaultsService {
+    enum Flow: String {
+        case onboarding
+        case privacyPollycy
+        case main
     }
 }

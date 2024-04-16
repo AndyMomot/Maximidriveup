@@ -12,15 +12,20 @@ struct RootContentView: View {
     
     var body: some View {
         Group {
-            if viewModel.isOnboarded {
-                MainTabBarView()
-            } else {
+            switch viewModel.flow {
+            case .onboarding:
                 OnboardingViewTabView()
+                    .environmentObject(viewModel)
+            case .privacyPollycy:
+                PrivacyPolicyView()
+                    .environmentObject(viewModel)
+            case .main:
+                MainTabBarView()
                     .environmentObject(viewModel)
             }
         }
         .onAppear {
-            viewModel.checkOnbordingStatus()
+            viewModel.getFlow()
         }
     }
 }
