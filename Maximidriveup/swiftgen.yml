@@ -1,0 +1,32 @@
+strings:
+  inputs:
+    - Maximidriveup/Resources/Localization
+  outputs:
+    - templateName: structured-swift5
+      output: Maximidriveup/Resources/Localization/Strings.generated.swift
+      params:
+        enumName: Strings
+
+xcassets:
+  - inputs:
+    - Maximidriveup/Resources/Images
+    outputs:
+      - templateName: swift5
+        output: Maximidriveup/Resources/Images/Images.generated.swift
+  - inputs:
+    - Maximidriveup/Resources/Colors/Colors.xcassets
+    outputs:
+      - templateName: swift5
+        output: Maximidriveup/Resources/Colors/Colors.generated.swift
+        params:
+          enumName: Colors
+          
+fonts:
+  - inputs: Maximidriveup/Resources/Fonts
+    outputs:
+    - templateName: swift5
+      output: Maximidriveup/Resources/Fonts/Fonts.generated.swift
+      params:
+        enumName: Fonts
+
+
