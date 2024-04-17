@@ -54,6 +54,15 @@
 		4785317A2BCEB8A700168F0C /* RegistrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478531792BCEB8A700168F0C /* RegistrationView.swift */; };
 		4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785317B2BCEBFA000168F0C /* RegistrationViewModel.swift */; };
 		4785317F2BCEC19100168F0C /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785317E2BCEC19100168F0C /* UserModel.swift */; };
+		478537452BD028F800168F0C /* MainTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537442BD028F800168F0C /* MainTabBarViewModel.swift */; };
+		478537472BD02BB800168F0C /* CustomTabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537462BD02BB800168F0C /* CustomTabBarView.swift */; };
+		4785374A2BD0422F00168F0C /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537492BD0422F00168F0C /* HomeView.swift */; };
+		4785374D2BD0425A00168F0C /* GradientBackgrount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785374C2BD0425A00168F0C /* GradientBackgrount.swift */; };
+		478537502BD0431000168F0C /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785374F2BD0431000168F0C /* CalendarView.swift */; };
+		478537532BD0433A00168F0C /* HelpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537522BD0433A00168F0C /* HelpView.swift */; };
+		478537562BD0435400168F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537552BD0435400168F0C /* SettingsView.swift */; };
+		478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537582BD043D000168F0C /* CustomSegmentControlView.swift */; };
+		4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785375A2BD0465500168F0C /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -106,6 +115,15 @@
 		478531792BCEB8A700168F0C /* RegistrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationView.swift; sourceTree = "<group>"; };
 		4785317B2BCEBFA000168F0C /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		4785317E2BCEC19100168F0C /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		478537442BD028F800168F0C /* MainTabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewModel.swift; sourceTree = "<group>"; };
+		478537462BD02BB800168F0C /* CustomTabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTabBarView.swift; sourceTree = "<group>"; };
+		478537492BD0422F00168F0C /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		4785374C2BD0425A00168F0C /* GradientBackgrount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackgrount.swift; sourceTree = "<group>"; };
+		4785374F2BD0431000168F0C /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		478537522BD0433A00168F0C /* HelpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpView.swift; sourceTree = "<group>"; };
+		478537552BD0435400168F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		478537582BD043D000168F0C /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
+		4785375A2BD0465500168F0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -294,6 +312,10 @@
 			isa = PBXGroup;
 			children = (
 				4785313C2BCE7F5500168F0C /* TabBar */,
+				478537482BD0421A00168F0C /* Home */,
+				4785374E2BD0430200168F0C /* Calendar */,
+				478537512BD0432C00168F0C /* Help */,
+				478537542BD0434900168F0C /* Settings */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -311,6 +333,8 @@
 			isa = PBXGroup;
 			children = (
 				4785313D2BCE7F5B00168F0C /* MainTabBarView.swift */,
+				478537442BD028F800168F0C /* MainTabBarViewModel.swift */,
+				478537462BD02BB800168F0C /* CustomTabBarView.swift */,
 			);
 			path = TabBar;
 			sourceTree = "<group>";
@@ -326,6 +350,8 @@
 		4785316C2BCE8ABD00168F0C /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				478537572BD043BA00168F0C /* CustomSegmentControl */,
+				4785374B2BD0424200168F0C /* GradientBackground */,
 				478531752BCEB49B00168F0C /* CheckBox */,
 				4785316D2BCE8AC500168F0C /* NextButton */,
 			);
@@ -372,6 +398,55 @@
 				4785317E2BCEC19100168F0C /* UserModel.swift */,
 			);
 			path = User;
+			sourceTree = "<group>";
+		};
+		478537482BD0421A00168F0C /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				478537492BD0422F00168F0C /* HomeView.swift */,
+				4785375A2BD0465500168F0C /* HomeViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		4785374B2BD0424200168F0C /* GradientBackground */ = {
+			isa = PBXGroup;
+			children = (
+				4785374C2BD0425A00168F0C /* GradientBackgrount.swift */,
+			);
+			path = GradientBackground;
+			sourceTree = "<group>";
+		};
+		4785374E2BD0430200168F0C /* Calendar */ = {
+			isa = PBXGroup;
+			children = (
+				4785374F2BD0431000168F0C /* CalendarView.swift */,
+			);
+			path = Calendar;
+			sourceTree = "<group>";
+		};
+		478537512BD0432C00168F0C /* Help */ = {
+			isa = PBXGroup;
+			children = (
+				478537522BD0433A00168F0C /* HelpView.swift */,
+			);
+			path = Help;
+			sourceTree = "<group>";
+		};
+		478537542BD0434900168F0C /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				478537552BD0435400168F0C /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		478537572BD043BA00168F0C /* CustomSegmentControl */ = {
+			isa = PBXGroup;
+			children = (
+				478537582BD043D000168F0C /* CustomSegmentControlView.swift */,
+			);
+			path = CustomSegmentControl;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -497,19 +572,28 @@
 				478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */,
 				478531362BCE7CDF00168F0C /* OnboardingView.swift in Sources */,
 				478531242BCE733800168F0C /* Fonts.generated.swift in Sources */,
+				478537502BD0431000168F0C /* CalendarView.swift in Sources */,
+				478537472BD02BB800168F0C /* CustomTabBarView.swift in Sources */,
 				4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */,
 				478531432BCE834200168F0C /* OnboardingViewModel.swift in Sources */,
 				4785313B2BCE7E9000168F0C /* RootContentViewModel.swift in Sources */,
+				478537452BD028F800168F0C /* MainTabBarViewModel.swift in Sources */,
 				4785311F2BCE733800168F0C /* Colors.generated.swift in Sources */,
+				4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */,
 				478530FC2BCE71BA00168F0C /* RootContentView.swift in Sources */,
 				4785316F2BCE8AD200168F0C /* NextButtonView.swift in Sources */,
 				478530EA2BCE713F00168F0C /* SceneDelegate.swift in Sources */,
+				4785374D2BD0425A00168F0C /* GradientBackgrount.swift in Sources */,
 				478531742BCEB36900168F0C /* PrivacyPolicyViewModel.swift in Sources */,
 				478531722BCE900700168F0C /* PrivacyPolicyView.swift in Sources */,
 				4785317A2BCEB8A700168F0C /* RegistrationView.swift in Sources */,
 				478531772BCEB4AE00168F0C /* CheckBoxView.swift in Sources */,
+				478537562BD0435400168F0C /* SettingsView.swift in Sources */,
 				4785311D2BCE733800168F0C /* Images.generated.swift in Sources */,
+				478537532BD0433A00168F0C /* HelpView.swift in Sources */,
+				478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */,
 				478531402BCE820C00168F0C /* OnboardingViewTabView.swift in Sources */,
+				4785374A2BD0422F00168F0C /* HomeView.swift in Sources */,
 				4785313E2BCE7F5B00168F0C /* MainTabBarView.swift in Sources */,
 				478531332BCE75DC00168F0C /* DefaultsService.swift in Sources */,
 			);

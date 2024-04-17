@@ -8,8 +8,33 @@
 import SwiftUI
 
 struct MainTabBarView: View {
+    @EnvironmentObject var rootViewModel: RootContentView.RootContentViewModel
+    @StateObject private var viewModel = TabBarViewModel()
+    
     var body: some View {
-        Text(DefaultsService.userName)
+        GeometryReader { geometry in
+            TabView(selection: $viewModel.selection) {
+                HomeView()
+                    .tag(TabBarSelectionView.home.rawValue)
+                    .environmentObject(viewModel)
+                
+                CalendarView()
+                    .tag(TabBarSelectionView.calendar.rawValue)
+                    .environmentObject(viewModel)
+                
+                HelpView()
+                    .tag(TabBarSelectionView.help.rawValue)
+                
+                SettingsView()
+                    .tag(TabBarSelectionView.settings.rawValue)
+            }
+            .tableStyle(.inset)
+            .overlay(alignment: .bottom) {
+                CustomTabBarView(selectedItem: $viewModel.selection)
+            }
+            .background(Color.red)
+            .padding(.bottom, -geometry.safeAreaInsets.bottom)
+        }
     }
 }
 

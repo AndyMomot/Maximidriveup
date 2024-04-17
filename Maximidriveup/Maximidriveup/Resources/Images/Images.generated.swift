@@ -22,6 +22,22 @@ internal typealias AssetImageTypeAlias = ImageAsset.Image
 
 // swiftlint:disable identifier_name line_length nesting type_body_length type_name
 internal enum Asset {
+  internal static let path0 = ImageAsset(name: "Path0")
+  internal static let path1 = ImageAsset(name: "Path1")
+  internal static let path2 = ImageAsset(name: "Path2")
+  internal static let path3 = ImageAsset(name: "Path3")
+  internal static let calendarTab = ImageAsset(name: "calendarTab")
+  internal static let calendarTabSelected = ImageAsset(name: "calendarTabSelected")
+  internal static let helpTab = ImageAsset(name: "helpTab")
+  internal static let helpTabSelected = ImageAsset(name: "helpTabSelected")
+  internal static let homeTab = ImageAsset(name: "homeTab")
+  internal static let homeTabSelected = ImageAsset(name: "homeTabSelected")
+  internal static let settingsTab = ImageAsset(name: "settingsTab")
+  internal static let settingsTabSelected = ImageAsset(name: "settingsTabSelected")
+  internal static let tabBar0 = ImageAsset(name: "tabBar0")
+  internal static let tabBar1 = ImageAsset(name: "tabBar1")
+  internal static let tabBar2 = ImageAsset(name: "tabBar2")
+  internal static let tabBar3 = ImageAsset(name: "tabBar3")
   internal static let bolid = ImageAsset(name: "bolid")
   internal static let cart = ImageAsset(name: "cart")
   internal static let logo = ImageAsset(name: "logo")
