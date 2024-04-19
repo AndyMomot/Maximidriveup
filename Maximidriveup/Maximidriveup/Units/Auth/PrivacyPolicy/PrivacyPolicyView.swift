@@ -13,40 +13,45 @@ struct PrivacyPolicyView: View {
     
     var body: some View {
         NavigationStack {
-            VStack(alignment: .center, spacing: 26) {
-                Asset.ppLogo.swiftUIImage
+            ZStack {
+                Color.white
+                    .ignoresSafeArea(edges: .bottom)
                 
-                ScrollView {
-                    VStack(alignment: .leading, spacing: 5) {
-                        Text("Наша политика конфиденциальности обеспечивает защиту вашей личной информации.")
-                            .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 17))
-                        
-                        Text("Мы тщательно следим за тем, чтобы ваши данные были защищены от несанкционированного доступа. Вы имеете право контролировать свою личную информацию и выбирать, как она используется. Мы гарантируем, что ваши данные будут использованы исключительно в рамках законных целей.")
-                            .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 17))
-                    }
-                    .foregroundColor(.black)
-                }
-                
-                Spacer(minLength: .zero)
-                
-                VStack(alignment: .center, spacing: 22) {
-                    NextButtonView {
-                        if viewModel.isAgreed {
-                            viewModel.showRegistration.toggle()
+                VStack(alignment: .center, spacing: 26) {
+                    Asset.ppLogo.swiftUIImage
+                    
+                    ScrollView {
+                        VStack(alignment: .leading, spacing: 5) {
+                            Text("Наша политика конфиденциальности обеспечивает защиту вашей личной информации.")
+                                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 17))
                             
+                            Text("Мы тщательно следим за тем, чтобы ваши данные были защищены от несанкционированного доступа. Вы имеете право контролировать свою личную информацию и выбирать, как она используется. Мы гарантируем, что ваши данные будут использованы исключительно в рамках законных целей.")
+                                .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 17))
+                        }
+                        .foregroundColor(.black)
+                    }
+                    
+                    Spacer(minLength: .zero)
+                    
+                    VStack(alignment: .center, spacing: 22) {
+                        NextButtonView {
+                            if viewModel.isAgreed {
+                                viewModel.showRegistration.toggle()
+                                
+                            }
+                        }
+                        .opacity(viewModel.isAgreed ? 1 : 0.5)
+                        
+                        CheckBoxView(text: "Я согласен с политикой конфиденциальности") { selection in
+                            viewModel.isAgreed = selection
                         }
                     }
-                    .opacity(viewModel.isAgreed ? 1 : 0.5)
-                    
-                    CheckBoxView(text: "Я согласен с политикой конфиденциальности") { selection in
-                        viewModel.isAgreed = selection
-                    }
                 }
+                .padding()
+                .navigationBarBackButtonHidden()
+                .navigationDestination(isPresented: $viewModel.showRegistration) {
+                    RegistrationView()
             }
-            .padding()
-            .navigationBarBackButtonHidden()
-            .navigationDestination(isPresented: $viewModel.showRegistration) {
-                RegistrationView()
             }
         }
     }

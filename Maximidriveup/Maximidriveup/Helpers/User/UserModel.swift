@@ -16,4 +16,12 @@ final class UserModel {
     var name: String {
         DefaultsService.userName
     }
+    
+    var memberItems: [HomeView.IncomeCostModel] {
+        DefaultsService.memberItems
+    }
+    
+    var organizerItems: [HomeView.IncomeCostModel] {
+        DefaultsService.organizerItems
+    }
 }

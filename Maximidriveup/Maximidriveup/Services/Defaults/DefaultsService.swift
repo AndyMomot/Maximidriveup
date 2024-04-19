@@ -31,11 +31,43 @@ extension DefaultsService {
     }
 }
 
+extension DefaultsService {
+    static func saveMemberItems(_ items: [HomeView.IncomeCostModel]) {
+        if let data = try? JSONEncoder().encode(items) {
+            standard.set(data, forKey: Keys.memberItems.rawValue)
+        }
+    }
+    
+    static func saveOrganizerItems(_ items: [HomeView.IncomeCostModel]) {
+        if let data = try? JSONEncoder().encode(items) {
+            standard.set(data, forKey: Keys.organizerItems.rawValue)
+        }
+    }
+    
+    static var memberItems: [HomeView.IncomeCostModel] {
+        if let data = standard.object(forKey: Keys.memberItems.rawValue) as? Data {
+            let items = try? JSONDecoder().decode([HomeView.IncomeCostModel].self, from: data)
+            return items ?? []
+        }
+        return []
+    }
+    
+    static var organizerItems: [HomeView.IncomeCostModel] {
+        if let data = standard.object(forKey: Keys.organizerItems.rawValue) as? Data {
+            let items = try? JSONDecoder().decode([HomeView.IncomeCostModel].self, from: data)
+            return items ?? []
+        }
+        return []
+    }
+}
+
 // MARK: - Keys
 extension DefaultsService {
     enum Keys: String {
         case flow
         case userName
+        case memberItems
+        case organizerItems
     }
 }
 

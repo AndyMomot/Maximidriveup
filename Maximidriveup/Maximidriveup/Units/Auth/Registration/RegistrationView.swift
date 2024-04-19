@@ -14,66 +14,78 @@ struct RegistrationView: View {
     @StateObject private var viewModel = RegistrationViewModel()
     
     var body: some View {
-        VStack(alignment: .center, spacing: 15) {
-            HStack(spacing: 10) {
-                Asset.logoFire.swiftUIImage
-                    .resizable()
-                    .scaledToFit()
-                    .frame(maxWidth: bounts.width * 0.125)
-                
-                Text("Maximidriveup")
-                    .foregroundColor(.black)
-                    .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 32))
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.8)
-            }
+        ZStack {
+            Color.white
+                .ignoresSafeArea(edges: .bottom)
             
-            VStack {
-                HStack {
-                    Spacer()
-                    Text("Регистрация")
-                        .foregroundColor(.white)
-                        .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 20))
+            VStack(alignment: .center, spacing: 15) {
+                HStack(spacing: 10) {
+                    Asset.logoFire.swiftUIImage
+                        .resizable()
+                        .scaledToFit()
+                        .frame(maxWidth: bounts.width * 0.125)
+                    
+                    Text("Maximidriveup")
+                        .foregroundColor(.black)
+                        .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 32))
                         .lineLimit(1)
                         .minimumScaleFactor(0.8)
-                        .padding(.top, 15)
-                    
-                    Spacer()
                 }
                 
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text("Имя")
-                        TextField(text: $viewModel.name) {
-                            Text("Имя")
-                        }
+                VStack {
+                    HStack {
+                        Spacer()
+                        Text("Регистрация")
+                            .foregroundColor(.white)
+                            .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 20))
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
+                            .padding(.top, 15)
+                        
+                        Spacer()
                     }
-                    .padding()
                     
-                    Spacer(minLength: .zero)
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text("Имя")
+                                .foregroundColor(.black)
+                                .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 13))
+                            
+                            TextField(text: $viewModel.name) {
+                                Text("Имя")
+                                    .foregroundColor(.gray)
+                                    .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
+                            }
+                            .foregroundColor(.black)
+                            .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
+                        }
+                        .padding()
+                        
+                        Spacer(minLength: .zero)
+                    }
+                    .background {
+                        Color.white
+                    }
+                    .cornerRadius(8)
+                    .padding(15)
                 }
                 .background {
-                    Color.white
+                    Color.black
                 }
-                .cornerRadius(8)
-                .padding(15)
-            }
-            .background {
-                Color.black
-            }
-            .cornerRadius(20)
-            
-            Spacer(minLength: .zero)
-            
-            NextButtonView(title: "Регистрация") {
-                if viewModel.isValidName {
-                    viewModel.saveName()
-                    rootViewModel.setFlow(.main)
+                .cornerRadius(20)
+                
+                Spacer(minLength: .zero)
+                
+                NextButtonView(title: "Регистрация") {
+                    if viewModel.isValidName {
+                        viewModel.saveName()
+                        rootViewModel.setFlow(.main)
+                    }
                 }
             }
-        }
-        .padding()
+            .padding()
         .navigationBarBackButtonHidden()
+        }
     }
 }
 

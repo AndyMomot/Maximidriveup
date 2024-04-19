@@ -11,7 +11,7 @@ struct HelpView: View {
     var body: some View {
         ZStack {
             GradientBackground()
-                .ignoresSafeArea()
+                .ignoresSafeArea(edges: .bottom)
         }
     }
 }

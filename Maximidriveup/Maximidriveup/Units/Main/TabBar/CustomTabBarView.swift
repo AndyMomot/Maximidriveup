@@ -13,26 +13,14 @@ struct CustomTabBarView: View {
     
     
     private let items: [MainTabBarView.Item] = [
-        .init(image: Asset.homeTab.name,
-              selectedImage: Asset.homeTabSelected.name,
-              backgroundImage: Asset.tabBar0.name),
-        .init(image: Asset.calendarTab.name,
-              selectedImage: Asset.calendarTabSelected.name,
-              backgroundImage: Asset.tabBar1.name),
-        .init(image: Asset.helpTab.name,
-              selectedImage: Asset.helpTabSelected.name,
-              backgroundImage: Asset.tabBar2.name),
-        .init(image: Asset.settingsTab.name,
-              selectedImage: Asset.settingsTabSelected.name,
-              backgroundImage: Asset.tabBar3.name),
+        .init(backgroundImage: Asset.tabBar0.name),
+        .init(backgroundImage: Asset.tabBar1.name),
+        .init(backgroundImage: Asset.tabBar2.name),
+        .init(backgroundImage: Asset.tabBar3.name),
     ]
     
     var body: some View {
         ZStack {
-//            Rectangle()
-//                .foregroundColor(Colors.liteGray.swiftUIColor)
-//                .frame(height: bounds.height * 0.1)
-            
             Image(items[selectedItem].backgroundImage)
                 .resizable()
                 .scaledToFill()
@@ -48,7 +36,7 @@ struct CustomTabBarView: View {
                         Rectangle()
                             .frame(
                                 width: bounds.width * 0.2,
-                                height: bounds.height * 0.1
+                                height: bounds.height * 0.08
                             )
                             .foregroundColor(.clear)
 //                            .border(Color.red)

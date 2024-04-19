@@ -22,8 +22,6 @@ extension MainTabBarView {
     }
     
     struct Item {
-        var image: String
-        var selectedImage: String
         var backgroundImage: String
     }
 }

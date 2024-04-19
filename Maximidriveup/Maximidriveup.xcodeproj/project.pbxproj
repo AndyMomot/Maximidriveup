@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4739F5412BD2AB2C00E77810 /* IncomeCostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739F5402BD2AB2C00E77810 /* IncomeCostCell.swift */; };
+		4739F5432BD2B21200E77810 /* FinalContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739F5422BD2B21200E77810 /* FinalContentView.swift */; };
 		478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530E72BCE713F00168F0C /* AppDelegate.swift */; };
 		478530EA2BCE713F00168F0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530E92BCE713F00168F0C /* SceneDelegate.swift */; };
 		478530EC2BCE713F00168F0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530EB2BCE713F00168F0C /* ViewController.swift */; };
@@ -63,9 +65,14 @@
 		478537562BD0435400168F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537552BD0435400168F0C /* SettingsView.swift */; };
 		478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537582BD043D000168F0C /* CustomSegmentControlView.swift */; };
 		4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785375A2BD0465500168F0C /* HomeViewModel.swift */; };
+		47C8E32C2BD12A5900D66991 /* MemberOrganizerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */; };
+		47C8E32F2BD14B0C00D66991 /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32E2BD14B0C00D66991 /* FieldCell.swift */; };
+		47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E3332BD1990B00D66991 /* AddFieldView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4739F5402BD2AB2C00E77810 /* IncomeCostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeCostCell.swift; sourceTree = "<group>"; };
+		4739F5422BD2B21200E77810 /* FinalContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalContentView.swift; sourceTree = "<group>"; };
 		478530E42BCE713F00168F0C /* Maximidriveup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maximidriveup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478530E72BCE713F00168F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478530E92BCE713F00168F0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,6 +131,9 @@
 		478537552BD0435400168F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		478537582BD043D000168F0C /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
 		4785375A2BD0465500168F0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOrganizerContentView.swift; sourceTree = "<group>"; };
+		47C8E32E2BD14B0C00D66991 /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
+		47C8E3332BD1990B00D66991 /* AddFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFieldView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +147,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4739F53F2BD2AA6A00E77810 /* FinalContent */ = {
+			isa = PBXGroup;
+			children = (
+				4739F5422BD2B21200E77810 /* FinalContentView.swift */,
+				4739F5402BD2AB2C00E77810 /* IncomeCostCell.swift */,
+			);
+			path = FinalContent;
+			sourceTree = "<group>";
+		};
 		478530DB2BCE713F00168F0C = {
 			isa = PBXGroup;
 			children = (
@@ -193,7 +212,6 @@
 			isa = PBXGroup;
 			children = (
 				4785317D2BCEC18300168F0C /* User */,
-				4785316C2BCE8ABD00168F0C /* Views */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -230,6 +248,7 @@
 		478531082BCE733800168F0C /* Colors */ = {
 			isa = PBXGroup;
 			children = (
+				4785316C2BCE8ABD00168F0C /* Views */,
 				478531092BCE733800168F0C /* Colors.xcassets */,
 				4785310A2BCE733800168F0C /* Colors.generated.swift */,
 			);
@@ -405,6 +424,9 @@
 			children = (
 				478537492BD0422F00168F0C /* HomeView.swift */,
 				4785375A2BD0465500168F0C /* HomeViewModel.swift */,
+				47C8E32D2BD14A3300D66991 /* MemberOrganizerContent */,
+				47C8E3322BD198EF00D66991 /* AddField */,
+				4739F53F2BD2AA6A00E77810 /* FinalContent */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -447,6 +469,23 @@
 				478537582BD043D000168F0C /* CustomSegmentControlView.swift */,
 			);
 			path = CustomSegmentControl;
+			sourceTree = "<group>";
+		};
+		47C8E32D2BD14A3300D66991 /* MemberOrganizerContent */ = {
+			isa = PBXGroup;
+			children = (
+				47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */,
+				47C8E32E2BD14B0C00D66991 /* FieldCell.swift */,
+			);
+			path = MemberOrganizerContent;
+			sourceTree = "<group>";
+		};
+		47C8E3322BD198EF00D66991 /* AddField */ = {
+			isa = PBXGroup;
+			children = (
+				47C8E3332BD1990B00D66991 /* AddFieldView.swift */,
+			);
+			path = AddField;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,7 +608,9 @@
 				478530EC2BCE713F00168F0C /* ViewController.swift in Sources */,
 				4785317F2BCEC19100168F0C /* UserModel.swift in Sources */,
 				4785312D2BCE733800168F0C /* Strings.generated.swift in Sources */,
+				4739F5412BD2AB2C00E77810 /* IncomeCostCell.swift in Sources */,
 				478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */,
+				47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */,
 				478531362BCE7CDF00168F0C /* OnboardingView.swift in Sources */,
 				478531242BCE733800168F0C /* Fonts.generated.swift in Sources */,
 				478537502BD0431000168F0C /* CalendarView.swift in Sources */,
@@ -580,7 +621,9 @@
 				478537452BD028F800168F0C /* MainTabBarViewModel.swift in Sources */,
 				4785311F2BCE733800168F0C /* Colors.generated.swift in Sources */,
 				4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */,
+				47C8E32F2BD14B0C00D66991 /* FieldCell.swift in Sources */,
 				478530FC2BCE71BA00168F0C /* RootContentView.swift in Sources */,
+				47C8E32C2BD12A5900D66991 /* MemberOrganizerContentView.swift in Sources */,
 				4785316F2BCE8AD200168F0C /* NextButtonView.swift in Sources */,
 				478530EA2BCE713F00168F0C /* SceneDelegate.swift in Sources */,
 				4785374D2BD0425A00168F0C /* GradientBackgrount.swift in Sources */,
@@ -594,6 +637,7 @@
 				478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */,
 				478531402BCE820C00168F0C /* OnboardingViewTabView.swift in Sources */,
 				4785374A2BD0422F00168F0C /* HomeView.swift in Sources */,
+				4739F5432BD2B21200E77810 /* FinalContentView.swift in Sources */,
 				4785313E2BCE7F5B00168F0C /* MainTabBarView.swift in Sources */,
 				478531332BCE75DC00168F0C /* DefaultsService.swift in Sources */,
 			);

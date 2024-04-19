@@ -32,7 +32,6 @@ struct MainTabBarView: View {
             .overlay(alignment: .bottom) {
                 CustomTabBarView(selectedItem: $viewModel.selection)
             }
-            .background(Color.red)
             .padding(.bottom, -geometry.safeAreaInsets.bottom)
         }
     }
