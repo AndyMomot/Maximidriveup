@@ -24,7 +24,7 @@ struct HomeView: View {
                             selectedItem: $viewModel.selectedSegment)
                         
                         Button {
-                            
+                            viewModel.showHistory.toggle()
                         } label: {
                             Asset.history.swiftUIImage
                                 .padding(.bottom, 6)
@@ -49,18 +49,20 @@ struct HomeView: View {
                     case .final:
                         FinalContentView(
                             memberItems: viewModel.memberItems,
-                            organizerItems: viewModel.organizerItems)
+                            organizerItems: viewModel.organizerItems) { income in
+                                viewModel.income = income
+                            }
                     }
                     
                     switch viewModel.segmentType {
                     case .final:
                         HStack(spacing: 10) {
                             NextButtonView(title: "Удалить") {
-                                
+                                viewModel.deleteNote()
                             }
                             
                             NextButtonView(title: "Сохранить") {
-                                
+                                viewModel.saveNote()
                             }
                         }
                         .padding(.bottom, geometry.size.height * 0.04)
@@ -93,7 +95,10 @@ struct HomeView: View {
             }
             .onAppear {
                 viewModel.setItems()
-        }
+            }
+            .fullScreenCover(isPresented: $viewModel.showHistory) {
+                HistoryView()
+            }
         }
     }
 }

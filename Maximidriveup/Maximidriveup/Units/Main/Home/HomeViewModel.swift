@@ -18,8 +18,10 @@ extension HomeView {
         
         @Published var memberItems: [HomeView.IncomeCostModel] = []
         @Published var organizerItems: [HomeView.IncomeCostModel] = []
+        @Published var income: Double = .zero
         
         @Published var showAddItem = false
+        @Published var showHistory = false
         
         func saveMemberItems() {
             DispatchQueue.main.async {
@@ -46,28 +48,136 @@ extension HomeView {
         }
         
         func updateMemberItem(sum: Int, at index: Int) {
-            memberItems[index].sum = sum
-            saveMemberItems()
+            if (memberItems.count - 1) >= index {
+                memberItems[index].sum = sum
+                saveMemberItems()
+            }
         }
         
         func updateOrganizerItem(sum: Int, at index: Int) {
-            organizerItems[index].sum = sum
-            saveOrganizerItems()
+            if (organizerItems.count - 1) >= index {
+                organizerItems[index].sum = sum
+                saveOrganizerItems()
+            }
         }
         
         func removeMemberItem(at index: Int) {
-            memberItems.remove(at: index)
-            saveMemberItems()
+            if (memberItems.count - 1) >= index {
+                memberItems.remove(at: index)
+                saveMemberItems()
+            }
         }
         
         func removeOrganizerItem(at index: Int) {
-            organizerItems.remove(at: index)
-            saveOrganizerItems()
+            if (organizerItems.count - 1) >= index {
+                organizerItems.remove(at: index)
+                saveOrganizerItems()
+            }
         }
         
         func setItems() {
             memberItems = UserModel.shared.memberItems
             organizerItems = UserModel.shared.organizerItems
+        }
+        
+        // MARK: Final -
+        func deleteNote() {
+            memberItems.removeAll()
+            organizerItems.removeAll()
+            
+            if memberItems.isEmpty {
+                saveMemberItems()
+            }
+            
+            if organizerItems.isEmpty {
+                saveOrganizerItems()
+            }
+        }
+        
+        func saveNote() {
+            var memberCosts: Int {
+                let costsArray = memberItems.filter { $0.type == .cost }
+                if costsArray.isEmpty {
+                    return .zero
+                }
+                return costsArray.reduce(0) { $0 + $1.sum }
+            }
+            
+            var memberIncome: Int {
+                let incomeArray = memberItems.filter { $0.type == .income }
+                if incomeArray.isEmpty {
+                    return .zero
+                }
+                return incomeArray.reduce(0) { $0 + $1.sum }
+            }
+            
+            var organizerCosts: Int {
+                let costsArray = organizerItems.filter { $0.type == .cost }
+                if costsArray.isEmpty {
+                    return .zero
+                }
+                return costsArray.reduce(0) { $0 + $1.sum }
+            }
+            
+            var organizerIncome: Int {
+                let incomeArray = organizerItems.filter { $0.type == .income }
+                if incomeArray.isEmpty {
+                    return .zero
+                }
+                return incomeArray.reduce(0) { $0 + $1.sum }
+            }
+            
+            let totalCost = memberCosts + organizerCosts
+            let totalIncome = memberIncome + organizerIncome
+            let resultIncome = self.income
+            var percent: Int {
+                if totalIncome >= .zero {
+                    return .zero
+                }
+                
+                return Int(resultIncome / Double(totalIncome)) * 100
+            }
+            
+            let memberNote = HomeView.FinalNodeItem(
+                title: "Учасник",
+                costsText: "Сумма трат",
+                costsValue: memberCosts,
+                incomeText: "Сумма заработка",
+                incomeValue: memberIncome,
+                order: 0
+            )
+            let organizerNote = HomeView.FinalNodeItem(
+                title: "Организатор",
+                costsText: "Сумма трат",
+                costsValue: organizerCosts,
+                incomeText: "Сумма заработка",
+                incomeValue: organizerIncome,
+                order: 1
+            )
+            let resultNote = HomeView.FinalNodeItem(
+                title: "Итог",
+                costsText: "Итог трат",
+                costsValue: totalCost,
+                incomeText: "Итог заработка",
+                incomeValue: totalIncome,
+                order: 2
+            )
+            let incomeNote = HomeView.FinalNodeItem(
+                title: "Моя Прибыль",
+                costsText: "%",
+                costsValue: percent,
+                incomeText: "Прибыль",
+                incomeValue: Int(resultIncome),
+                order: 3
+            )
+            let section = HomeView.FinalNodeSection(nodes: [
+                memberNote, organizerNote, resultNote, incomeNote
+            ])
+            
+            DispatchQueue.main.async {
+                DefaultsService.saveFinalNote(section: section)
+                self.deleteNote()
+            }
         }
     }
     
@@ -114,5 +224,22 @@ extension HomeView {
         var bottomFieldValue: Double
         var showTopFieldDollarMark = true
         var showBottomFieldDollarMark = true
+        var canEditTopField = false
+    }
+    
+    struct FinalNodeSection: Codable, Identifiable {
+        var id = UUID()
+        var date = Date()
+        var nodes: [FinalNodeItem]
+    }
+    
+    struct FinalNodeItem: Codable, Identifiable {
+        var id = UUID()
+        var title: String
+        var costsText: String
+        var costsValue: Int
+        var incomeText: String
+        var incomeValue: Int
+        var order: Int
     }
 }

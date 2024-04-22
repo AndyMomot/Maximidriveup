@@ -25,6 +25,7 @@ internal enum Asset {
   internal static let crossBlack = ImageAsset(name: "crossBlack")
   internal static let dollar = ImageAsset(name: "dollar")
   internal static let history = ImageAsset(name: "history")
+  internal static let leftTriangle = ImageAsset(name: "leftTriangle")
   internal static let tresh = ImageAsset(name: "tresh")
   internal static let tabBar0 = ImageAsset(name: "tabBar0")
   internal static let tabBar1 = ImageAsset(name: "tabBar1")

@@ -10,15 +10,29 @@ import SwiftUI
 struct FinalContentView: View {
     var memberItems: [HomeView.IncomeCostModel]
     var organizerItems: [HomeView.IncomeCostModel]
+    var onIncomeChanged: (Double) -> Void
+    
+    @State private var percentText = ""
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack(spacing: 10) {
-                IncomeCostCell(model: createMemberModel())
-                IncomeCostCell(model: createOrganizerModel())
-                IncomeCostCell(model: createResultModel())
-                IncomeCostCell(model: createIncomeModel())
+                IncomeCostCell(
+                    model: createMemberModel(),
+                    text: .constant(""))
+                IncomeCostCell(
+                    model: createOrganizerModel(),
+                    text: .constant(""))
+                IncomeCostCell(
+                    model: createResultModel(),
+                    text: .constant(""))
+                IncomeCostCell(
+                    model: createIncomeModel(),
+                    text: $percentText)
             }
+        }
+        .onChange(of: percentText) { _ in
+            onIncomeChanged(getIncome())
         }
     }
 }
@@ -90,25 +104,24 @@ private extension FinalContentView {
     }
     
     func createIncomeModel() -> HomeView.FinalIncomeCostModel {
-        let result = createResultModel()
-        let income = result.bottomFieldValue - result.topFieldValue
-        var percent: Double {
-            if income > .zero {
-                return (income / result.bottomFieldValue) * 100
-            } else {
-                return .zero
-            }
-        }
+        let percent = Double(percentText) ?? .zero
         
         return HomeView.FinalIncomeCostModel(
             title: "Моя Прибыль",
             topFieldName: "%",
             bottomFieldName: "Прибыль",
             topFieldValue: Double(percent),
-            bottomFieldValue: income,
-            showTopFieldDollarMark: false)
+            bottomFieldValue: getIncome(),
+            showTopFieldDollarMark: false,
+            canEditTopField: true
+        )
     }
     
+    func getIncome() -> Double {
+        let result = createResultModel()
+        let percent = Double(percentText) ?? .zero
+        return (result.bottomFieldValue / 100) * percent
+    }
 }
 
 struct FinalContentView_Previews: PreviewProvider {
@@ -130,6 +143,6 @@ struct FinalContentView_Previews: PreviewProvider {
                       title: "Cost 2",
                       sum: 400)
             ]
-        )
+        ) { _ in }
     }
 }

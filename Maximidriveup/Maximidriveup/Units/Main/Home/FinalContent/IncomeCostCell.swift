@@ -9,6 +9,7 @@ import SwiftUI
 
 struct IncomeCostCell: View {
     var model: HomeView.FinalIncomeCostModel
+    @Binding var text: String
     
     var body: some View {
         HStack(spacing: 0) {
@@ -24,13 +25,16 @@ struct IncomeCostCell: View {
             Spacer(minLength: 4)
             
             VStack(spacing: 10) {
-                createFieldView(name: model.topFieldName,
-                                value: model.topFieldValue,
-                                showDollar: model.showTopFieldDollarMark)
+                createFieldView(
+                    name: model.topFieldName,
+                    value: model.topFieldValue,
+                    showDollar: model.showTopFieldDollarMark,
+                    canEditTopField: model.canEditTopField)
                 
-                createFieldView(name: model.bottomFieldName,
-                                value: model.bottomFieldValue,
-                                showDollar: model.showBottomFieldDollarMark)
+                createFieldView(
+                    name: model.bottomFieldName,
+                    value: model.bottomFieldValue,
+                    showDollar: model.showBottomFieldDollarMark)
             }
             .padding(.top)
             .padding(.horizontal)
@@ -45,7 +49,8 @@ struct IncomeCostCell: View {
 private extension IncomeCostCell {
     func createFieldView(name: String,
                          value: Double,
-                         showDollar: Bool = true) -> some View {
+                         showDollar: Bool = true,
+                         canEditTopField: Bool = false) -> some View {
         HStack {
             Spacer(minLength: .zero)
             
@@ -60,9 +65,22 @@ private extension IncomeCostCell {
                         height: 30)
                     .cornerRadius(8)
                 
-                Text("\(Int(value))")
-                    .foregroundColor(.black)
-                    .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
+                if canEditTopField {
+                    TextField(text: $text) {
+                        Text("\(Int(value))")
+                            .foregroundColor(.gray)
+                            .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
+                            .multilineTextAlignment(.center)
+                    }
+                    .keyboardType(.numberPad)
+                    .frame(maxWidth: 80)
+                    .multilineTextAlignment(.center)
+                    
+                } else {
+                    Text("\(Int(value))")
+                        .foregroundColor(.black)
+                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
+                }
             }
             
             if showDollar {
@@ -81,8 +99,9 @@ struct IncomeCostCell_Previews: PreviewProvider {
             topFieldValue: 100,
             bottomFieldValue: 200,
             showTopFieldDollarMark: false,
-            showBottomFieldDollarMark: true
-        ))
+            showBottomFieldDollarMark: true,
+            canEditTopField: true
+        ), text: .constant(""))
         .previewLayout(.fixed(width: 335, height: 90))
     }
 }
