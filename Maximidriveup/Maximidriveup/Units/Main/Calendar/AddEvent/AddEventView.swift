@@ -14,6 +14,9 @@ struct AddEventView: View {
     @State private var start = ""
     @State private var finish = ""
     
+    @State private var showDatePicker = false
+    @State private var selectedDate = Date()
+    
     private var bounds: CGRect {
         UIScreen.main.bounds
     }
@@ -23,26 +26,78 @@ struct AddEventView: View {
             Color.gray.opacity(0.2)
             
             VStack {
-                HStack {
-                    Spacer()
-                    
-                    VStack(spacing: 16) {
-                        Text("Создание события")
-                            .foregroundColor(.black)
-                            .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 20))
-                            .padding(.top)
+                Spacer()
+                
+                VStack {
+                    HStack {
+                        Spacer()
                         
-                        TextField(text: $eventName) {
-                          Text("Название события")
+                        VStack(spacing: 16) {
+                            Text("Создание события")
+                                .foregroundColor(.black)
+                                .font(Fonts.SFProDisplay.semibold.swiftUIFont(size: 20))
+                                .padding(.top)
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray, lineWidth: 1)
+                                .foregroundColor(Color.clear)
+                                .frame(height: 50)
+                                .overlay(
+                                    TextField(text: $eventName) {
+                                        Text("Название события")
+                                    }
+                                        .padding()
+                                )
+                            
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray, lineWidth: 1)
+                                .foregroundColor(Color.clear)
+                                .frame(height: 50)
+                                .overlay(
+                                    TextField(text: $eventDescription) {
+                                        Text("Описание")
+                                    }
+                                        .padding()
+                                )
+                            
+                            if showDatePicker {
+                                DatePicker("", selection: $selectedDate, in: Date()..., displayedComponents: .date)
+                                    .datePickerStyle(.graphical)
+                                    .onChange(of: selectedDate) { newValue in
+                                        showDatePicker.toggle()
+                                }
+                            } else {
+                                
+                                RoundedRectangle(cornerRadius: 10)
+                                    .stroke(.gray, lineWidth: 1)
+                                    .foregroundColor(Color.clear)
+                                    .frame(height: 50)
+                                    .overlay(
+                                        HStack {
+                                            Text(selectedDate.toString())
+                                            
+                                            Spacer()
+                                            
+                                            Button {
+                                                showDatePicker.toggle()
+                                            } label: {
+                                                Asset.calendar.swiftUIImage
+                                            }
+                                            
+                                        }
+                                            .padding()
+                                    )
+                            }
+                            Spacer()
                         }
                         
                         Spacer()
                     }
+                    .background(Color.white)
+                    .cornerRadius(30)
+                    .shadow(color: .black.opacity(0.1), radius: 15, y: -15)
+                    .frame(height: bounds.height * 0.76)
                 }
-                .background(Color.white)
-                .cornerRadius(10)
-                .shadow(color: .black.opacity(0.1), radius: 3, y: -3)
-                .frame(height: bounds.height * 0.3)
             }
         }
     }
@@ -52,6 +107,6 @@ struct AddEventView_Previews: PreviewProvider {
     static var previews: some View {
         AddEventView()
             .ignoresSafeArea()
-
+        
     }
 }
