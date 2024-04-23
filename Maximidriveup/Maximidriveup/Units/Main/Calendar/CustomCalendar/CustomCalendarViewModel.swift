@@ -11,6 +11,7 @@ import SwiftUI
 extension CustomCalendarView {
     final class CustomCalendarViewModel: ObservableObject {
         @Published var date = Date()
+        @Published var showCreateEvent = true
         
         let weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
         let calendar: Calendar = {
@@ -23,6 +24,7 @@ extension CustomCalendarView {
         let daysInWeek = 7
         var events = DefaultsService.getCalendarEvents
         
+        // Calendar
         func addOrSubtractMonth(value: Int) {
             date = date.addOrSubtract(component: .month, value: value)
         }
@@ -78,9 +80,13 @@ extension CustomCalendarView {
         }
         
         func createDayModel(for date: Date, state: DayOfMonthModel.State) -> DayOfMonthModel {
-            let day = date.getCalendarComponet(period: .day)
+            let day = date.getCalendarComponent(period: .day)
             let numberOfEvents = events.filter { $0.date == date }.count
             return .init(state: state, day: "\(day)", events: numberOfEvents)
+        }
+        
+        func createEvent() {
+            
         }
     }
 }

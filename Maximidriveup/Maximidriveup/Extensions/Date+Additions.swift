@@ -29,7 +29,7 @@ extension Date {
         return calendar.isDateInToday(self)
     }
     
-    func getCalendarComponet(period component: Calendar.Component) -> Int {
+    func getCalendarComponent(period component: Calendar.Component) -> Int {
         let calendar = Calendar.current
         return calendar.component(component, from: self)
     }
