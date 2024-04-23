@@ -96,6 +96,32 @@ extension DefaultsService {
     }
 }
 
+extension DefaultsService {
+    static var getCalendarEvents: [CustomCalendarView.EventModel] {
+        if let data = standard.object(forKey: Keys.calendarEvent.rawValue) as? Data {
+            let items = try? JSONDecoder().decode([CustomCalendarView.EventModel].self, from: data)
+            return items ?? []
+        }
+        return []
+    }
+    
+    static func saveCalendar(event: CustomCalendarView.EventModel) {
+        var events = getCalendarEvents
+        events.append(event)
+        if let data = try? JSONEncoder().encode(events) {
+            standard.set(data, forKey: Keys.calendarEvent.rawValue)
+        }
+    }
+    
+    static func removeCalendar(event: CustomCalendarView.EventModel) {
+        var events = getCalendarEvents
+        events.removeAll(where: { $0.id == event.id })
+        if let data = try? JSONEncoder().encode(events) {
+            standard.set(data, forKey: Keys.calendarEvent.rawValue)
+        }
+    }
+}
+
 // MARK: - Keys
 extension DefaultsService {
     enum Keys: String {
@@ -105,6 +131,7 @@ extension DefaultsService {
         case organizerItems
         case finalNote
         case currency
+        case calendarEvent
     }
 }
 

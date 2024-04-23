@@ -16,6 +16,13 @@ struct HomeView: View {
             ZStack {
                 GradientBackground()
                     .ignoresSafeArea(edges: .bottom)
+                    .onTapGesture {
+                        UIApplication.shared.sendAction(
+                            #selector(UIResponder.resignFirstResponder),
+                            to: nil,
+                            from: nil,
+                            for: nil)
+                    }
                 
                 VStack(spacing: 20) {
                     HStack(spacing: 1) {

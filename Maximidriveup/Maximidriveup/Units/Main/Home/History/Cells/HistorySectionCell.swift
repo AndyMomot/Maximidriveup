@@ -14,7 +14,7 @@ struct HistorySectionCell: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Text(section.date.toString(format: .ddMMyy))
+                Text(section.date.toString(format: .ddMMyyyy))
                     .foregroundColor(.black)
                     .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 17))
                 
