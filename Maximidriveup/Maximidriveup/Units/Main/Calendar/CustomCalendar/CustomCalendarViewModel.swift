@@ -11,7 +11,8 @@ import SwiftUI
 extension CustomCalendarView {
     final class CustomCalendarViewModel: ObservableObject {
         @Published var date = Date()
-        @Published var showCreateEvent = true
+        @Published var showCreateEvent = false
+        @Published var events: [CustomCalendarView.EventModel] = []
         
         let weekDays = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
         let calendar: Calendar = {
@@ -22,11 +23,11 @@ extension CustomCalendarView {
         }()
         let numberOfRows = 5
         let daysInWeek = 7
-        var events = DefaultsService.getCalendarEvents
         
         // Calendar
         func addOrSubtractMonth(value: Int) {
             date = date.addOrSubtract(component: .month, value: value)
+            getCalendarEvents()
         }
         
         // Функция для получения дня месяца для заданного ряда и столбца в календаре
@@ -85,8 +86,57 @@ extension CustomCalendarView {
             return .init(state: state, day: "\(day)", events: numberOfEvents)
         }
         
-        func createEvent() {
+        func getCalendarEvents() {
+            deleteInvalidEvents()
+            events = DefaultsService.getCalendarEvents.filter {
+                $0.date.toString(format: .mmYY) == date.toString(format: .mmYY)
+            }.sorted(by: {
+                let firstFinish = combine(date: $0.date, andTime: $0.end)
+                let secondFinish = combine(date: $1.date, andTime: $1.end)
+                return firstFinish < secondFinish
+            })
+        }
+        
+        func delete(event: CustomCalendarView.EventModel) {
+            DispatchQueue.main.async {
+                DefaultsService.removeCalendar(event: event)
+                self.getCalendarEvents()
+            }
+        }
+        
+        func deleteInvalidEvents()  {
+            DefaultsService.getCalendarEvents.filter {
+                let finish = combine(date: $0.date, andTime: $0.end)
+                return finish < Date() && $0.autoDelete
+            }.forEach { event in
+                self.delete(event: event)
+            }
+        }
+        
+        private func combine(date: Date, andTime: Date) -> Date {
+            // Ваши объекты Date
+            let date1 = date // Первая дата
+            let date2 = andTime // Вторая дата
+
+            // Создание календаря
+            let calendar = Calendar.current
+
+            // Извлечение компонентов даты из первого объекта Date
+            let date1Components = calendar.dateComponents([.year, .month, .day], from: date1)
+
+            // Извлечение компонентов времени из второго объекта Date
+            let date2Components = calendar.dateComponents([.hour, .minute, .second], from: date2)
+
+            // Создание новых компонентов даты и времени
+            var combinedComponents = DateComponents()
+            combinedComponents.year = date1Components.year
+            combinedComponents.month = date1Components.month
+            combinedComponents.day = date1Components.day
+            combinedComponents.hour = date2Components.hour
+            combinedComponents.minute = date2Components.minute
+            combinedComponents.second = date2Components.second
             
+            return calendar.date(from: combinedComponents) ?? Date()
         }
     }
 }

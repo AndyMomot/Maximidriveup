@@ -13,6 +13,9 @@ struct CustomCalendarView: View {
     
     var body: some View {
         ZStack {
+            Color.white
+                .ignoresSafeArea(edges: .bottom)
+            
             ScrollView(showsIndicators: false) {
                 VStack(spacing: 20) {
                     
@@ -80,11 +83,10 @@ struct CustomCalendarView: View {
                             viewModel.showCreateEvent.toggle()
                         }
                         
-                        ForEach(0..<3) { _ in
-                            Rectangle()
-                                .frame(height: 95)
-                                .foregroundColor(Colors.yellow.swiftUIColor)
-                                .cornerRadius(10)
+                        ForEach(viewModel.events) { event in
+                            EvertItemCell(item: event) {
+                                viewModel.delete(event: event)
+                            }
                         }
                     }
                     .padding()
@@ -92,9 +94,13 @@ struct CustomCalendarView: View {
             }
             
             if viewModel.showCreateEvent {
-                AddEventView()
-                    .ignoresSafeArea()
+                AddEventView(show: $viewModel.showCreateEvent) { // on create
+                    viewModel.getCalendarEvents()
+                }
             }
+        }
+        .onAppear {
+            viewModel.getCalendarEvents()
         }
     }
 }

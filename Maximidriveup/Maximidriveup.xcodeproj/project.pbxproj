@@ -80,6 +80,8 @@
 		47C8E32C2BD12A5900D66991 /* MemberOrganizerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */; };
 		47C8E32F2BD14B0C00D66991 /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32E2BD14B0C00D66991 /* FieldCell.swift */; };
 		47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E3332BD1990B00D66991 /* AddFieldView.swift */; };
+		47D1946D2BD9469600BD98FC /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */; };
+		47D194702BD94C4A00BD98FC /* EvertItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D1946F2BD94C4A00BD98FC /* EvertItemCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -158,6 +160,8 @@
 		47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOrganizerContentView.swift; sourceTree = "<group>"; };
 		47C8E32E2BD14B0C00D66991 /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
 		47C8E3332BD1990B00D66991 /* AddFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFieldView.swift; sourceTree = "<group>"; };
+		47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
+		47D1946F2BD94C4A00BD98FC /* EvertItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvertItemCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				4739FB212BD7F52B00E77810 /* AddEventView.swift */,
+				47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */,
 			);
 			path = AddEvent;
 			sourceTree = "<group>";
@@ -507,6 +512,7 @@
 		4785374E2BD0430200168F0C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
+				47D1946E2BD94C3B00BD98FC /* EvertItem */,
 				4739FB202BD7F51600E77810 /* AddEvent */,
 				4739FB162BD7AB5500E77810 /* CustomCalendar */,
 				4785374F2BD0431000168F0C /* CalendarView.swift */,
@@ -554,6 +560,14 @@
 				47C8E3332BD1990B00D66991 /* AddFieldView.swift */,
 			);
 			path = AddField;
+			sourceTree = "<group>";
+		};
+		47D1946E2BD94C3B00BD98FC /* EvertItem */ = {
+			isa = PBXGroup;
+			children = (
+				47D1946F2BD94C4A00BD98FC /* EvertItemCell.swift */,
+			);
+			path = EvertItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -714,7 +728,9 @@
 				478537532BD0433A00168F0C /* HelpView.swift in Sources */,
 				4739FB1F2BD7B75800E77810 /* String+Additions.swift in Sources */,
 				478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */,
+				47D1946D2BD9469600BD98FC /* AddEventViewModel.swift in Sources */,
 				478531402BCE820C00168F0C /* OnboardingViewTabView.swift in Sources */,
+				47D194702BD94C4A00BD98FC /* EvertItemCell.swift in Sources */,
 				4785374A2BD0422F00168F0C /* HomeView.swift in Sources */,
 				4739F5432BD2B21200E77810 /* FinalContentView.swift in Sources */,
 				4785313E2BCE7F5B00168F0C /* MainTabBarView.swift in Sources */,

@@ -115,9 +115,13 @@ extension DefaultsService {
     
     static func removeCalendar(event: CustomCalendarView.EventModel) {
         var events = getCalendarEvents
-        events.removeAll(where: { $0.id == event.id })
-        if let data = try? JSONEncoder().encode(events) {
-            standard.set(data, forKey: Keys.calendarEvent.rawValue)
+        
+        if let index = events.firstIndex(where: {$0.id == event.id}) {
+            events.remove(at: index)
+            
+            if let data = try? JSONEncoder().encode(events) {
+                standard.set(data, forKey: Keys.calendarEvent.rawValue)
+            }
         }
     }
 }

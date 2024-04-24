@@ -8,7 +8,7 @@
 import Foundation
 
 extension Date {
-    func toString(format: Format = .ddMMyyyy) -> String {
+    func toString(format: Format) -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
         dateFormatter.dateFormat = format.rawValue
@@ -48,5 +48,6 @@ extension Date {
         case llll = "LLLL"
         case yyyy = "yyyy"
         case mmYY = "MM.yy"
+        case hhmm = "HH:mm"
     }
 }
