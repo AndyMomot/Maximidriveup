@@ -8,33 +8,65 @@
 import SwiftUI
 
 struct AddNoteView: View {
+    var note: NotesView.Note? = nil
+    
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = AddNoteViewModel()
-    var note: NotesView.Note? = nil
     
     var body: some View {
         NavigationStack {
             ZStack {
-                Color.white
+                GradientBackground()
                     .ignoresSafeArea()
-                ScrollView {
-                    VStack {
-                        VStack(alignment: .leading) {
-                            Text("Введите текст:")
-                                .font(.headline)
-                                .padding(.bottom, 4)
+                
+                VStack {
+                    ScrollView(showsIndicators: false) {
+                        VStack(alignment: .leading, spacing: 10) {
+                            RoundedRectangle(cornerRadius: 10)
+                                .stroke(.gray, lineWidth: 1)
+                                .foregroundColor(Color.clear)
+                                .background(Color.white)
+                                .frame(height: 50)
+                                .overlay(
+                                    TextField(text: $viewModel.title) {
+                                        Text("Название события")
+                                            .foregroundColor(.gray)
+                                            .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
+                                    }
+                                        .foregroundColor(.black)
+                                        .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
+                                        .padding()
+                                )
+                            Text((note?.date ?? Date()).toString(format: .ddMMYYHHmm))
+                                .foregroundColor(.black)
+                                .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 13))
                             
                             ZStack(alignment: .topLeading) {
                                 RoundedRectangle(cornerRadius: 10)
                                     .stroke(Color.gray, lineWidth: 1)
-                                TextEditor(text: $viewModel.title)
+                                    .background(Color.white)
+                                
+                                TextEditor(text: $viewModel.description)
                                     .padding(8)
+                                    .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 15))
                             }
                             .frame(minHeight: 100)
                         }
-                        .padding()
+                    }
+                    
+                    Spacer()
+                    
+                    HStack(spacing: 12) {
+                        NextButtonView(title: "Удалить") {
+                            viewModel.delete(note: note)
+                        }
+                        
+                        NextButtonView(title: "Сохранить") {
+                            viewModel.onSaveTapped(note: note)
+                        }
                     }
                 }
+                .padding()
             }
             .navigationBarItems(
                 leading:
@@ -50,6 +82,9 @@ struct AddNoteView: View {
                     }
                     .navigationBarBackButtonHidden(true)
             )
+        }
+        .onAppear {
+            viewModel.setUI(with: note)
         }
     }
 }

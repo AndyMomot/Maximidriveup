@@ -141,6 +141,10 @@ extension DefaultsService {
             note.style = .black
         }
         notes.append(note)
+        saveCalendar(notes: notes)
+    }
+    
+    static func saveCalendar(notes: [NotesView.Note]) {
         if let data = try? JSONEncoder().encode(notes) {
             standard.set(data, forKey: Keys.calendarNote.rawValue)
         }
