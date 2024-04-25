@@ -21,6 +21,12 @@
 		4739FB1D2BD7AE5200E77810 /* CustomCalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739FB1C2BD7AE5200E77810 /* CustomCalendarViewModel.swift */; };
 		4739FB1F2BD7B75800E77810 /* String+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739FB1E2BD7B75800E77810 /* String+Additions.swift */; };
 		4739FB222BD7F52B00E77810 /* AddEventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4739FB212BD7F52B00E77810 /* AddEventView.swift */; };
+		47431A812BDA9450005BCBD6 /* AddNoteView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47431A802BDA9450005BCBD6 /* AddNoteView.swift */; };
+		47431A842BDA96E3005BCBD6 /* AddNoteViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47431A832BDA96E3005BCBD6 /* AddNoteViewModel.swift */; };
+		474FF4A62BDA484E001C022A /* FlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FF4A52BDA484E001C022A /* FlowLayout.swift */; };
+		474FF4AA2BDA4BB1001C022A /* NotesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FF4A92BDA4BB1001C022A /* NotesView.swift */; };
+		474FF4AC2BDA4BB8001C022A /* NotesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FF4AB2BDA4BB8001C022A /* NotesViewModel.swift */; };
+		474FF4AE2BDA5767001C022A /* CalendarNoteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 474FF4AD2BDA5767001C022A /* CalendarNoteCell.swift */; };
 		478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530E72BCE713F00168F0C /* AppDelegate.swift */; };
 		478530EA2BCE713F00168F0C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530E92BCE713F00168F0C /* SceneDelegate.swift */; };
 		478530EC2BCE713F00168F0C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478530EB2BCE713F00168F0C /* ViewController.swift */; };
@@ -99,6 +105,12 @@
 		4739FB1C2BD7AE5200E77810 /* CustomCalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCalendarViewModel.swift; sourceTree = "<group>"; };
 		4739FB1E2BD7B75800E77810 /* String+Additions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Additions.swift"; sourceTree = "<group>"; };
 		4739FB212BD7F52B00E77810 /* AddEventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventView.swift; sourceTree = "<group>"; };
+		47431A802BDA9450005BCBD6 /* AddNoteView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteView.swift; sourceTree = "<group>"; };
+		47431A832BDA96E3005BCBD6 /* AddNoteViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNoteViewModel.swift; sourceTree = "<group>"; };
+		474FF4A52BDA484E001C022A /* FlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowLayout.swift; sourceTree = "<group>"; };
+		474FF4A92BDA4BB1001C022A /* NotesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesView.swift; sourceTree = "<group>"; };
+		474FF4AB2BDA4BB8001C022A /* NotesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotesViewModel.swift; sourceTree = "<group>"; };
+		474FF4AD2BDA5767001C022A /* CalendarNoteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarNoteCell.swift; sourceTree = "<group>"; };
 		478530E42BCE713F00168F0C /* Maximidriveup.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Maximidriveup.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		478530E72BCE713F00168F0C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		478530E92BCE713F00168F0C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -208,8 +220,8 @@
 			isa = PBXGroup;
 			children = (
 				4739FB172BD7AB5500E77810 /* CustomCalendarView.swift */,
-				4739FB1C2BD7AE5200E77810 /* CustomCalendarViewModel.swift */,
 				4739FB182BD7AB5500E77810 /* DayOfMonthCell.swift */,
+				4739FB1C2BD7AE5200E77810 /* CustomCalendarViewModel.swift */,
 			);
 			path = CustomCalendar;
 			sourceTree = "<group>";
@@ -221,6 +233,44 @@
 				47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */,
 			);
 			path = AddEvent;
+			sourceTree = "<group>";
+		};
+		47431A822BDA96D3005BCBD6 /* AddNote */ = {
+			isa = PBXGroup;
+			children = (
+				47431A802BDA9450005BCBD6 /* AddNoteView.swift */,
+				47431A832BDA96E3005BCBD6 /* AddNoteViewModel.swift */,
+			);
+			path = AddNote;
+			sourceTree = "<group>";
+		};
+		474FF4A42BDA4842001C022A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				474FF4A52BDA484E001C022A /* FlowLayout.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		474FF4A72BDA4B84001C022A /* Events */ = {
+			isa = PBXGroup;
+			children = (
+				47D1946E2BD94C3B00BD98FC /* EvertItem */,
+				4739FB202BD7F51600E77810 /* AddEvent */,
+				4739FB162BD7AB5500E77810 /* CustomCalendar */,
+			);
+			path = Events;
+			sourceTree = "<group>";
+		};
+		474FF4A82BDA4B96001C022A /* Notes */ = {
+			isa = PBXGroup;
+			children = (
+				47431A822BDA96D3005BCBD6 /* AddNote */,
+				474FF4A92BDA4BB1001C022A /* NotesView.swift */,
+				474FF4AB2BDA4BB8001C022A /* NotesViewModel.swift */,
+				474FF4AD2BDA5767001C022A /* CalendarNoteCell.swift */,
+			);
+			path = Notes;
 			sourceTree = "<group>";
 		};
 		478530DB2BCE713F00168F0C = {
@@ -278,6 +328,7 @@
 		478530FF2BCE729200168F0C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				474FF4A42BDA4842001C022A /* Views */,
 				4785317D2BCEC18300168F0C /* User */,
 			);
 			path = Helpers;
@@ -512,9 +563,8 @@
 		4785374E2BD0430200168F0C /* Calendar */ = {
 			isa = PBXGroup;
 			children = (
-				47D1946E2BD94C3B00BD98FC /* EvertItem */,
-				4739FB202BD7F51600E77810 /* AddEvent */,
-				4739FB162BD7AB5500E77810 /* CustomCalendar */,
+				474FF4A82BDA4B96001C022A /* Notes */,
+				474FF4A72BDA4B84001C022A /* Events */,
 				4785374F2BD0431000168F0C /* CalendarView.swift */,
 				4739FB142BD7A1F500E77810 /* CalendarViewModel.swift */,
 			);
@@ -693,15 +743,19 @@
 				4739F5412BD2AB2C00E77810 /* IncomeCostCell.swift in Sources */,
 				478530E82BCE713F00168F0C /* AppDelegate.swift in Sources */,
 				47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */,
+				47431A812BDA9450005BCBD6 /* AddNoteView.swift in Sources */,
 				4739FB152BD7A1F500E77810 /* CalendarViewModel.swift in Sources */,
 				478531362BCE7CDF00168F0C /* OnboardingView.swift in Sources */,
 				478531242BCE733800168F0C /* Fonts.generated.swift in Sources */,
+				47431A842BDA96E3005BCBD6 /* AddNoteViewModel.swift in Sources */,
 				478537502BD0431000168F0C /* CalendarView.swift in Sources */,
 				478537472BD02BB800168F0C /* CustomTabBarView.swift in Sources */,
+				474FF4AA2BDA4BB1001C022A /* NotesView.swift in Sources */,
 				4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */,
 				478531432BCE834200168F0C /* OnboardingViewModel.swift in Sources */,
 				4785313B2BCE7E9000168F0C /* RootContentViewModel.swift in Sources */,
 				478537452BD028F800168F0C /* MainTabBarViewModel.swift in Sources */,
+				474FF4AC2BDA4BB8001C022A /* NotesViewModel.swift in Sources */,
 				4785311F2BCE733800168F0C /* Colors.generated.swift in Sources */,
 				4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */,
 				47C8E32F2BD14B0C00D66991 /* FieldCell.swift in Sources */,
@@ -714,11 +768,13 @@
 				4739FB1A2BD7AB5500E77810 /* DayOfMonthCell.swift in Sources */,
 				4739FB222BD7F52B00E77810 /* AddEventView.swift in Sources */,
 				4739FB0F2BD6A22D00E77810 /* HistorySectionCell.swift in Sources */,
+				474FF4A62BDA484E001C022A /* FlowLayout.swift in Sources */,
 				4739FB1D2BD7AE5200E77810 /* CustomCalendarViewModel.swift in Sources */,
 				4785374D2BD0425A00168F0C /* GradientBackgrount.swift in Sources */,
 				478531742BCEB36900168F0C /* PrivacyPolicyViewModel.swift in Sources */,
 				478531722BCE900700168F0C /* PrivacyPolicyView.swift in Sources */,
 				4739FB0A2BD69F8300E77810 /* HistoryViewModel.swift in Sources */,
+				474FF4AE2BDA5767001C022A /* CalendarNoteCell.swift in Sources */,
 				4785317A2BCEB8A700168F0C /* RegistrationView.swift in Sources */,
 				4739FB082BD69F7600E77810 /* HistoryView.swift in Sources */,
 				4739FB0D2BD6A21D00E77810 /* HistoryItemCell.swift in Sources */,

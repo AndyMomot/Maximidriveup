@@ -68,8 +68,8 @@ struct CustomCalendarView: View {
                             ForEach(0..<viewModel.numberOfRows, id: \.self) { row in
                                 HStack(alignment: .center, spacing: 10) {
                                     ForEach(0..<self.viewModel.daysInWeek, id: \.self) { column in
-                                        if let date = viewModel.dayOfMonthForTest(row: row, column: column).0 {
-                                            let state = viewModel.dayOfMonthForTest(row: row, column: column).1
+                                        if let date = viewModel.dayOfMonthFor(row: row, column: column).0 {
+                                            let state = viewModel.dayOfMonthFor(row: row, column: column).1
                                             let model = viewModel.createDayModel(for: date, state: state)
                                             
                                             DayOfMonthCell(model: model)

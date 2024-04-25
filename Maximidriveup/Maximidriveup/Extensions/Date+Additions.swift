@@ -49,5 +49,6 @@ extension Date {
         case yyyy = "yyyy"
         case mmYY = "MM.yy"
         case hhmm = "HH:mm"
+        case ddMMYYHHmm = "dd.MM.yy HH:mm"
     }
 }

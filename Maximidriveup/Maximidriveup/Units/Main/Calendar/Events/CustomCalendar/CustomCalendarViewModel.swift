@@ -31,7 +31,7 @@ extension CustomCalendarView {
         }
         
         // Функция для получения дня месяца для заданного ряда и столбца в календаре
-        func dayOfMonthForTest(row: Int, column: Int) -> (Date?, DayOfMonthModel.State) {
+        func dayOfMonthFor(row: Int, column: Int) -> (Date?, DayOfMonthModel.State) {
             
             // Получаем первый день месяца
             let firstDayOfMonth = calendar.date(from: calendar.dateComponents([.year, .month], from: date))!
@@ -82,7 +82,9 @@ extension CustomCalendarView {
         
         func createDayModel(for date: Date, state: DayOfMonthModel.State) -> DayOfMonthModel {
             let day = date.getCalendarComponent(period: .day)
-            let numberOfEvents = events.filter { $0.date == date }.count
+            let numberOfEvents = DefaultsService.getCalendarEvents.filter {
+                $0.date.toString(format: .ddMMyy) == date.toString(format: .ddMMyy)
+            }.count
             return .init(state: state, day: "\(day)", events: numberOfEvents)
         }
         

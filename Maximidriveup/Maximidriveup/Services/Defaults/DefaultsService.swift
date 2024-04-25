@@ -124,6 +124,37 @@ extension DefaultsService {
             }
         }
     }
+    
+    static var getCalendarNotes: [NotesView.Note] {
+        if let data = standard.object(forKey: Keys.calendarNote.rawValue) as? Data {
+            let items = try? JSONDecoder().decode([NotesView.Note].self, from: data)
+            return items ?? []
+        }
+        return []
+    }
+    
+    static func saveCalendar(note: inout NotesView.Note) {
+        var notes = getCalendarNotes
+        if notes.count % 2 == 0 {
+            note.style = .yellow
+        } else {
+            note.style = .black
+        }
+        notes.append(note)
+        if let data = try? JSONEncoder().encode(notes) {
+            standard.set(data, forKey: Keys.calendarNote.rawValue)
+        }
+    }
+    
+    static func removeCalendar(note: NotesView.Note) {
+        var notes = getCalendarNotes
+        if let index = notes.firstIndex(where: { $0.id == note.id }) {
+            notes.remove(at: index)
+            if let data = try? JSONEncoder().encode(notes) {
+                standard.set(data, forKey: Keys.calendarNote.rawValue)
+            }
+        }
+    }
 }
 
 // MARK: - Keys
@@ -136,6 +167,7 @@ extension DefaultsService {
         case finalNote
         case currency
         case calendarEvent
+        case calendarNote
     }
 }
 
