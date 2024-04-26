@@ -9,11 +9,25 @@ import Foundation
 
 extension NotesView {
     final class NotesViewModel: ObservableObject {
-        @Published var notes: [Note] = []
+        @Published var notesLeading: [Note] = []
+        @Published var notesTrailing: [Note] = []
+        @Published var showAddNote = false
+        
+        var selectedNote: Note?
         
         func getNotes() {
             DispatchQueue.main.async {
-                self.notes = DefaultsService.getCalendarNotes
+                self.notesLeading.removeAll()
+                self.notesTrailing.removeAll()
+                
+                let notes = DefaultsService.getCalendarNotes
+                for index in 0..<notes.count {
+                    if index % 2 == 0 {
+                        self.notesLeading.append(notes[index])
+                    } else {
+                        self.notesTrailing.append(notes[index])
+                    }
+                }
             }
         }
     }

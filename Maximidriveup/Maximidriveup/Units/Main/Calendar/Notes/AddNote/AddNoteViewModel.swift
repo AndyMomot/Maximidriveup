@@ -18,37 +18,39 @@ extension AddNoteView {
             description = note.description
         }
         
-        func onSaveTapped(note: NotesView.Note?) {
+        func onSaveTapped(note: NotesView.Note?) -> Bool {
             guard let note = note else {
-                saveNote()
-                return
+                return saveNote()
             }
             
-            update(note: note)
+            return update(note: note)
         }
         
-        func saveNote() {
-            DispatchQueue.main.async {
-                if self.isValidFields() {
-                    var note = NotesView.Note(title: self.title,
-                                              description: self.description)
-                    DefaultsService.saveCalendar(note: &note)
-                }
+        func saveNote() -> Bool {
+            if self.isValidFields() {
+                let isBlackStyle = Bool.random()
+                let note = NotesView.Note(title: self.title,
+                                          description: self.description,
+                                          style: isBlackStyle ? .black : .yellow
+                )
+                DefaultsService.saveCalendar(note: note)
+                return true
             }
+            return false
         }
         
-        func update(note: NotesView.Note) {
-            DispatchQueue.main.async {
-                if self.isValidFields() {
-                    var notes = DefaultsService.getCalendarNotes
-                    if let index = notes.firstIndex(where: {
-                        $0.id == note.id
-                    }) {
-                        notes[index] = note
-                        DefaultsService.saveCalendar(notes: notes)
-                    }
+        func update(note: NotesView.Note) -> Bool {
+            if self.isValidFields() {
+                var notes = DefaultsService.getCalendarNotes
+                if let index = notes.firstIndex(where: {
+                    $0.id == note.id
+                }) {
+                    notes[index] = note
+                    DefaultsService.saveCalendar(notes: notes)
+                    return true
                 }
             }
+            return false
         }
         
         func isValidFields() -> Bool {

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AddNoteView: View {
     var note: NotesView.Note? = nil
+    var onBack: () -> Void
     
     @Environment(\.presentationMode) var presentationMode
     @StateObject private var viewModel = AddNoteViewModel()
@@ -62,7 +63,12 @@ struct AddNoteView: View {
                         }
                         
                         NextButtonView(title: "Сохранить") {
-                            viewModel.onSaveTapped(note: note)
+                            DispatchQueue.main.async {
+                                if self.viewModel.onSaveTapped(note: note) {
+                                    self.presentationMode.wrappedValue.dismiss()
+                                    self.onBack()
+                                }
+                            }
                         }
                     }
                 }
@@ -72,6 +78,7 @@ struct AddNoteView: View {
                 leading:
                     Button(action: {
                         presentationMode.wrappedValue.dismiss()
+                        onBack()
                     }) {
                         HStack {
                             Asset.leftTriangle.swiftUIImage
@@ -91,6 +98,6 @@ struct AddNoteView: View {
 
 struct AddNoteView_Previews: PreviewProvider {
     static var previews: some View {
-        AddNoteView()
+        AddNoteView() {}
     }
 }

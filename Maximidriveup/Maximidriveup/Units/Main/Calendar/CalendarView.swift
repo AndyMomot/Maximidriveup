@@ -25,7 +25,7 @@ struct CalendarView: View {
                 case .calendar:
                     CustomCalendarView()
                 case .notes:
-                    EmptyView()
+                    NotesView()
                 }
                 
                 Spacer()

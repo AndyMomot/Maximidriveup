@@ -12,9 +12,11 @@ struct CalendarNoteCell: View {
     
     var body: some View {
         VStack(spacing: 5) {
-            VStack(spacing: 1) {
+            VStack(spacing: 3) {
                 HStack {
                     Text(note.date.toString(format: .ddMMYYHHmm))
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.5)
                     Spacer(minLength: .zero)
                 }
                 
@@ -25,10 +27,14 @@ struct CalendarNoteCell: View {
             }
             .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 18))
             
-            Text(note.description)
-                .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 13))
-                .lineLimit(5)
+            HStack {
+                Text(note.description)
+                    .font(Fonts.SFProDisplay.bold.swiftUIFont(size: 13))
+                    .lineLimit(.random(in: 4...9))
+                Spacer(minLength: .zero)
+            }
         }
+        .multilineTextAlignment(.leading)
         .padding()
         .background {
             note.style == .black ? Color.black : Colors.yellow.swiftUIColor

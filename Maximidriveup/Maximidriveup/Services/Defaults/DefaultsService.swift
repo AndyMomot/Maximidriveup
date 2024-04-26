@@ -133,13 +133,8 @@ extension DefaultsService {
         return []
     }
     
-    static func saveCalendar(note: inout NotesView.Note) {
+    static func saveCalendar(note: NotesView.Note) {
         var notes = getCalendarNotes
-        if notes.count % 2 == 0 {
-            note.style = .yellow
-        } else {
-            note.style = .black
-        }
         notes.append(note)
         saveCalendar(notes: notes)
     }

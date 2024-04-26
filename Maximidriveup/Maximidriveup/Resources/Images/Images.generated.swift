@@ -25,6 +25,7 @@ internal enum Asset {
   internal static let backButton = ImageAsset(name: "backButton")
   internal static let calendar = ImageAsset(name: "calendar")
   internal static let clock = ImageAsset(name: "clock")
+  internal static let pencil = ImageAsset(name: "pencil")
   internal static let crossBlack = ImageAsset(name: "crossBlack")
   internal static let dollar = ImageAsset(name: "dollar")
   internal static let history = ImageAsset(name: "history")
