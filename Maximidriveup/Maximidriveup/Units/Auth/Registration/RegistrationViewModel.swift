@@ -16,7 +16,8 @@ extension RegistrationView {
         }
         
         func saveName() {
-            DefaultsService.setUserName(name)
+            var user = SettingsView.User(firstName: name)
+            DefaultsService.saveUser(user)
         }
     }
 }

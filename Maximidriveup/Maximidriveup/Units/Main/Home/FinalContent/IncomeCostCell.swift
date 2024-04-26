@@ -84,7 +84,9 @@ private extension IncomeCostCell {
             }
             
             if showDollar {
-                Asset.dollar.swiftUIImage
+                Text(DefaultsService.currency.icon)
+                    .foregroundColor(.white)
+                    .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 24))
             }
         }
     }

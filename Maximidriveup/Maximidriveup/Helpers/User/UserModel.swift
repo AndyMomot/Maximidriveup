@@ -14,7 +14,7 @@ final class UserModel {
     private init() {}
     
     var name: String {
-        DefaultsService.userName
+        DefaultsService.getUser()?.firstName ?? ""
     }
     
     var memberItems: [HomeView.IncomeCostModel] {

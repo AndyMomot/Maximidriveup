@@ -42,7 +42,9 @@ struct FieldCell: View {
                                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
                             }
                             
-                            Asset.dollar.swiftUIImage
+                            Text(DefaultsService.currency.icon)
+                                .foregroundColor(.white)
+                                .font(Fonts.SFProDisplay.medium.swiftUIFont(size: 24))
                         }
                     }
                     

@@ -21,14 +21,6 @@ extension DefaultsService {
     static func setFlow(_ flow: Flow) {
         standard.set(flow.rawValue, forKey: Keys.flow.rawValue)
     }
-    
-    static var userName: String {
-        return standard.string(forKey: Keys.userName.rawValue) ?? ""
-    }
-    
-    static func setUserName(_ name: String) {
-        standard.set(name, forKey: Keys.userName.rawValue)
-    }
 }
 
 extension DefaultsService {
@@ -156,17 +148,32 @@ extension DefaultsService {
     }
 }
 
+extension DefaultsService {
+    static func saveUser(_ user: SettingsView.User) {
+        if let data = try? JSONEncoder().encode(user) {
+            standard.set(data, forKey: Keys.user.rawValue)
+        }
+    }
+    
+    static func getUser() -> SettingsView.User? {
+        if let data = standard.object(forKey: Keys.user.rawValue) as? Data {
+            return try? JSONDecoder().decode(SettingsView.User.self, from: data)
+        }
+        return nil
+    }
+}
+
 // MARK: - Keys
 extension DefaultsService {
     enum Keys: String {
         case flow
-        case userName
         case memberItems
         case organizerItems
         case finalNote
         case currency
         case calendarEvent
         case calendarNote
+        case user
     }
 }
 
@@ -177,7 +184,7 @@ extension DefaultsService {
         case main
     }
     
-    enum Currency: String {
+    enum Currency: String, CaseIterable {
         case usd = "USD"
         case eur = "EUR"
         case uah = "UAH"
