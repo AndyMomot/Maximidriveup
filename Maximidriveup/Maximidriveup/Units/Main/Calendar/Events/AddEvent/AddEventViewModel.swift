@@ -43,7 +43,7 @@ private extension AddEventView.AddEventViewModel {
         let isValidEventName = !eventName.isEmpty
         let isValidEventDescription = !eventDescription.isEmpty
         var isValidTime: Bool {
-            startTime < Date() && startTime <= finishTime
+            startTime >= Date() && startTime <= finishTime
         }
         return isValidEventName && isValidEventDescription && isValidTime
     }
