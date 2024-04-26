@@ -54,7 +54,6 @@ struct NotesView: View {
                 }
             }
             .padding(.horizontal)
-                
             
             VStack(alignment: .trailing) {
                 Spacer()

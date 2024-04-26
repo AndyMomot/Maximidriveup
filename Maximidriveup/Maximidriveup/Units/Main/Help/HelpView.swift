@@ -8,10 +8,21 @@
 import SwiftUI
 
 struct HelpView: View {
+    @StateObject private var viewModel = HelpViewModel()
+    
     var body: some View {
         ZStack {
             GradientBackground()
                 .ignoresSafeArea(edges: .bottom)
+            
+            ScrollView(showsIndicators: false) {
+                VStack(spacing: 10) {
+                    ForEach(viewModel.tips) { advice in
+                        AdviceCell(advice: advice)
+                    }
+                }
+            }
+            .padding()
         }
     }
 }
