@@ -11,5 +11,6 @@ extension PrivacyPolicyView {
     final class PrivacyPolicyViewModel: ObservableObject {
         @Published var isAgreed = false
         @Published var showRegistration = false
+        let privacyURL = URL(string: "https://www.google.com")
     }
 }

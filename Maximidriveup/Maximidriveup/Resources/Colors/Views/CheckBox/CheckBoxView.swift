@@ -9,12 +9,14 @@ import SwiftUI
 
 struct CheckBoxView: View {
     var text: String
+    var url: URL?
     var onTap: (Bool) -> Void
     
     @State private var selection = false
     
-    init(text: String, onTap: @escaping (Bool) -> Void) {
+    init(text: String, url: URL?, onTap: @escaping (Bool) -> Void) {
         self.text = text
+        self.url = url
         self.onTap = onTap
     }
     
@@ -43,9 +45,17 @@ struct CheckBoxView: View {
                 }
             }
             
-            Text(text)
-                .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
-                .foregroundColor(Colors.darkGray.swiftUIColor)
+            Button {
+                guard let url = url, UIApplication.shared.canOpenURL(url) else {
+                    return
+                }
+                UIApplication.shared.open(url)
+            } label: {
+                Text(text)
+                    .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
+                    .foregroundColor(Colors.darkGray.swiftUIColor)
+                    .underline()
+            }
             
             Spacer(minLength: .zero)
         }
@@ -54,7 +64,8 @@ struct CheckBoxView: View {
 
 struct CheckBoxView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckBoxView(text: "Я согласен с политикой конфиденциальности ") { _ in }
+        CheckBoxView(text: "Я согласен с политикой конфиденциальности",
+                     url: nil) { _ in }
             .previewLayout(.sizeThatFits)
             .padding()
     }

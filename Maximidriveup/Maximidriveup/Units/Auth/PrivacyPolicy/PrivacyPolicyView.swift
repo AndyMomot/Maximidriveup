@@ -42,7 +42,8 @@ struct PrivacyPolicyView: View {
                         }
                         .opacity(viewModel.isAgreed ? 1 : 0.5)
                         
-                        CheckBoxView(text: "Я согласен с политикой конфиденциальности") { selection in
+                        CheckBoxView(text: "Я согласен с политикой конфиденциальности",
+                                     url: viewModel.privacyURL) { selection in
                             viewModel.isAgreed = selection
                         }
                     }
