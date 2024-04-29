@@ -13,6 +13,7 @@ struct CheckBoxView: View {
     var onTap: (Bool) -> Void
     
     @State private var selection = false
+    @State private var showWebView = false
     
     init(text: String, url: URL?, onTap: @escaping (Bool) -> Void) {
         self.text = text
@@ -46,10 +47,7 @@ struct CheckBoxView: View {
             }
             
             Button {
-                guard let url = url, UIApplication.shared.canOpenURL(url) else {
-                    return
-                }
-                UIApplication.shared.open(url)
+                showWebView.toggle()
             } label: {
                 Text(text)
                     .font(Fonts.SFProDisplay.regular.swiftUIFont(size: 14))
@@ -58,6 +56,9 @@ struct CheckBoxView: View {
             }
             
             Spacer(minLength: .zero)
+        }
+        .sheet(isPresented: $showWebView) {
+            WebView(url: url)
         }
     }
 }

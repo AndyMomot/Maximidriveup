@@ -89,6 +89,7 @@
 		478537562BD0435400168F0C /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537552BD0435400168F0C /* SettingsView.swift */; };
 		478537592BD043D000168F0C /* CustomSegmentControlView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 478537582BD043D000168F0C /* CustomSegmentControlView.swift */; };
 		4785375B2BD0465500168F0C /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4785375A2BD0465500168F0C /* HomeViewModel.swift */; };
+		479E489D2BDFA1A200FBF496 /* SwiftUIViewWebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 479E489C2BDFA1A200FBF496 /* SwiftUIViewWebView.swift */; };
 		47C8E32C2BD12A5900D66991 /* MemberOrganizerContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */; };
 		47C8E32F2BD14B0C00D66991 /* FieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E32E2BD14B0C00D66991 /* FieldCell.swift */; };
 		47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E3332BD1990B00D66991 /* AddFieldView.swift */; };
@@ -181,6 +182,7 @@
 		478537552BD0435400168F0C /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		478537582BD043D000168F0C /* CustomSegmentControlView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSegmentControlView.swift; sourceTree = "<group>"; };
 		4785375A2BD0465500168F0C /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		479E489C2BDFA1A200FBF496 /* SwiftUIViewWebView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftUIViewWebView.swift; sourceTree = "<group>"; };
 		47C8E32B2BD12A5900D66991 /* MemberOrganizerContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberOrganizerContentView.swift; sourceTree = "<group>"; };
 		47C8E32E2BD14B0C00D66991 /* FieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldCell.swift; sourceTree = "<group>"; };
 		47C8E3332BD1990B00D66991 /* AddFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFieldView.swift; sourceTree = "<group>"; };
@@ -210,6 +212,7 @@
 		473198B02BDBD7A200B69DEB /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				479E489B2BDFA1A200FBF496 /* WebView */,
 				473198B42BDBDCC100B69DEB /* InputField */,
 				473198B12BDBD7BD00B69DEB /* ImagePicker */,
 			);
@@ -637,6 +640,14 @@
 			path = CustomSegmentControl;
 			sourceTree = "<group>";
 		};
+		479E489B2BDFA1A200FBF496 /* WebView */ = {
+			isa = PBXGroup;
+			children = (
+				479E489C2BDFA1A200FBF496 /* SwiftUIViewWebView.swift */,
+			);
+			path = WebView;
+			sourceTree = "<group>";
+		};
 		47C8E32D2BD14A3300D66991 /* MemberOrganizerContent */ = {
 			isa = PBXGroup;
 			children = (
@@ -797,6 +808,7 @@
 				478537502BD0431000168F0C /* CalendarView.swift in Sources */,
 				478537472BD02BB800168F0C /* CustomTabBarView.swift in Sources */,
 				474FF4AA2BDA4BB1001C022A /* NotesView.swift in Sources */,
+				479E489D2BDFA1A200FBF496 /* SwiftUIViewWebView.swift in Sources */,
 				473198AA2BDBB94000B69DEB /* AdviceCell.swift in Sources */,
 				4785317C2BCEBFA000168F0C /* RegistrationViewModel.swift in Sources */,
 				478531432BCE834200168F0C /* OnboardingViewModel.swift in Sources */,

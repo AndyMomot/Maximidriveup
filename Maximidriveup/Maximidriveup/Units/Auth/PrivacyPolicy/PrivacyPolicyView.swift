@@ -52,7 +52,7 @@ struct PrivacyPolicyView: View {
                 .navigationBarBackButtonHidden()
                 .navigationDestination(isPresented: $viewModel.showRegistration) {
                     RegistrationView()
-            }
+                }
             }
         }
     }
