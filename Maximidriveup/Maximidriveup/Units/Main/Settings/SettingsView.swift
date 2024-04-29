@@ -25,9 +25,10 @@ struct SettingsView: View {
                         if let image = UIImage(data: viewModel.imageData) {
                             Image(uiImage: image)
                                 .resizable()
-                                .frame(width: UIScreen.main.bounds.width,
-                                       height: 200)
-                                .ignoresSafeArea(edges: .horizontal)
+                                .scaledToFit()
+                                .clipped()
+                                .frame(maxWidth: bounds.width,
+                                       maxHeight: 200)
                         } else {
                             Asset.placeholder.swiftUIImage
                                 .resizable()
@@ -56,8 +57,6 @@ struct SettingsView: View {
                             Spacer()
                         }
                     }
-                    
-                    
                     
                     VStack(spacing: 10) {
                         InputFieldView(title: "Имя",
