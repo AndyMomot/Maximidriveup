@@ -95,6 +95,8 @@
 		47C8E3342BD1990B00D66991 /* AddFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47C8E3332BD1990B00D66991 /* AddFieldView.swift */; };
 		47D1946D2BD9469600BD98FC /* AddEventViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */; };
 		47D194702BD94C4A00BD98FC /* EvertItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47D1946F2BD94C4A00BD98FC /* EvertItemCell.swift */; };
+		47FD06BD2BE0DF18003E06AB /* PreloaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 47FD06BC2BE0DF18003E06AB /* PreloaderView.swift */; };
+		47FD06BF2BE0DF81003E06AB /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 47FD06BE2BE0DF81003E06AB /* PrivacyInfo.xcprivacy */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -188,6 +190,8 @@
 		47C8E3332BD1990B00D66991 /* AddFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFieldView.swift; sourceTree = "<group>"; };
 		47D1946C2BD9469600BD98FC /* AddEventViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEventViewModel.swift; sourceTree = "<group>"; };
 		47D1946F2BD94C4A00BD98FC /* EvertItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EvertItemCell.swift; sourceTree = "<group>"; };
+		47FD06BC2BE0DF18003E06AB /* PreloaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreloaderView.swift; sourceTree = "<group>"; };
+		47FD06BE2BE0DF81003E06AB /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -342,6 +346,7 @@
 				478530F02BCE714000168F0C /* Assets.xcassets */,
 				478530F22BCE714000168F0C /* LaunchScreen.storyboard */,
 				478530F52BCE714000168F0C /* Info.plist */,
+				47FD06BE2BE0DF81003E06AB /* PrivacyInfo.xcprivacy */,
 			);
 			path = Maximidriveup;
 			sourceTree = "<group>";
@@ -378,6 +383,7 @@
 		478531012BCE72A400168F0C /* Units */ = {
 			isa = PBXGroup;
 			children = (
+				47FD06BB2BE0DF18003E06AB /* Preloader */,
 				478531372BCE7CE500168F0C /* Auth */,
 				478531382BCE7CF700168F0C /* Main */,
 			);
@@ -673,6 +679,14 @@
 			path = EvertItem;
 			sourceTree = "<group>";
 		};
+		47FD06BB2BE0DF18003E06AB /* Preloader */ = {
+			isa = PBXGroup;
+			children = (
+				47FD06BC2BE0DF18003E06AB /* PreloaderView.swift */,
+			);
+			path = Preloader;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -753,6 +767,7 @@
 				4785315F2BCE8A2B00168F0C /* SF-Pro-Display-ThinItalic.otf in Resources */,
 				4785315A2BCE8A2B00168F0C /* SFPro_Font_License.rtf in Resources */,
 				478531682BCE8A2B00168F0C /* SF-Pro-Display-HeavyItalic.otf in Resources */,
+				47FD06BF2BE0DF81003E06AB /* PrivacyInfo.xcprivacy in Resources */,
 				478531692BCE8A2B00168F0C /* SF-Pro-Display-RegularItalic.otf in Resources */,
 				478531602BCE8A2B00168F0C /* SF-Pro-Display-Semibold.otf in Resources */,
 				4785312E2BCE733800168F0C /* Localizable.strings in Resources */,
@@ -792,6 +807,7 @@
 			files = (
 				478530EC2BCE713F00168F0C /* ViewController.swift in Sources */,
 				473198B92BDBE3CD00B69DEB /* CurrencyPicker.swift in Sources */,
+				47FD06BD2BE0DF18003E06AB /* PreloaderView.swift in Sources */,
 				4785317F2BCEC19100168F0C /* UserModel.swift in Sources */,
 				4785312D2BCE733800168F0C /* Strings.generated.swift in Sources */,
 				473198B32BDBD7BD00B69DEB /* ImagePicker.swift in Sources */,

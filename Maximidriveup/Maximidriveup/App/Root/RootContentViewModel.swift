@@ -1,18 +1,15 @@
-//
-//  RootContentViewModel.swift
-//  Maximidriveup
-//
-//  Created by Andrii Momot on 16.04.2024.
-//
-
 import Foundation
 
 extension RootContentView {
     final class RootContentViewModel: ObservableObject {
         @Published var flow: DefaultsService.Flow = .onboarding
+        @Published var isLoading = true
         
         func getFlow() {
             flow = DefaultsService.flow
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                self.isLoading = false
+            }
         }
         
         func setFlow(_ flow: DefaultsService.Flow) {
@@ -21,3 +18,4 @@ extension RootContentView {
         }
     }
 }
+

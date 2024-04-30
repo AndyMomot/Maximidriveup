@@ -1,10 +1,3 @@
-//
-//  RootContentView.swift
-//  Maximidriveup
-//
-//  Created by Andrii Momot on 16.04.2024.
-//
-
 import SwiftUI
 
 struct RootContentView: View {
@@ -12,16 +5,20 @@ struct RootContentView: View {
     
     var body: some View {
         Group {
-            switch viewModel.flow {
-            case .onboarding:
-                OnboardingViewTabView()
-                    .environmentObject(viewModel)
-            case .privacyPolicy:
-                PrivacyPolicyView()
-                    .environmentObject(viewModel)
-            case .main:
-                MainTabBarView()
-                    .environmentObject(viewModel)
+            if viewModel.isLoading {
+                PreloaderView()
+            } else {
+                switch viewModel.flow {
+                case .onboarding:
+                    OnboardingViewTabView()
+                        .environmentObject(viewModel)
+                case .privacyPolicy:
+                    PrivacyPolicyView()
+                        .environmentObject(viewModel)
+                case .main:
+                    MainTabBarView()
+                        .environmentObject(viewModel)
+                }
             }
         }
         .onAppear {
